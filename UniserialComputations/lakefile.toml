@@ -1,0 +1,260 @@
+name = "uniserial_computations"
+version = "1.0.0"
+defaultTargets = ["UniserialComputations"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "fafbe4e9e7246fc9fddd812d4ffd5135c6c5ce04"
+
+[[lean_lib]]
+name = "UniserialComputations"
+srcDir = "."
+roots = ["Audit", "Statements"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N2"
+srcDir = "Cases/N2"
+roots = ["Case2Additional", "Case2Data", "Case2Dataset", "Case2Quiver"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N2_Proofs"
+srcDir = "Cases/N2/Proofs"
+roots = ["Case2Bridge", "Case2Coordinates", "Case2Presentation", "Case2PresentationBase", "Case2RealizationBase", "Case2Result"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N2_Proofs_HomChecks"
+srcDir = "Cases/N2/Proofs/HomChecks"
+roots = ["Case2Hom0", "Case2Hom1", "Case2Hom2"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N2_Proofs_LiftChecks"
+srcDir = "Cases/N2/Proofs/LiftChecks"
+roots = ["Case2LiftRow0", "Case2LiftRow1", "Case2LiftRow2"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N2_Proofs_PathChecks"
+srcDir = "Cases/N2/Proofs/PathChecks"
+roots = ["Case2Path0", "Case2Path1", "Case2Path2", "Case2Path3", "Case2Path4", "Case2Path5"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N3"
+srcDir = "Cases/N3"
+roots = ["Case3Additional", "Case3Data", "Case3Dataset", "Case3Quiver"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N3_Proofs"
+srcDir = "Cases/N3/Proofs"
+roots = ["Case3Bridge", "Case3Coordinates", "Case3Presentation", "Case3PresentationBase", "Case3RealizationBase", "Case3Result"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N3_Proofs_HomChecks"
+srcDir = "Cases/N3/Proofs/HomChecks"
+roots = ["Case3Hom0", "Case3Hom1", "Case3Hom2", "Case3Hom3", "Case3Hom4"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N3_Proofs_LiftChecks"
+srcDir = "Cases/N3/Proofs/LiftChecks"
+roots = ["Case3LiftRow0", "Case3LiftRow1", "Case3LiftRow2", "Case3LiftRow3", "Case3LiftRow4"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N3_Proofs_PathChecks"
+srcDir = "Cases/N3/Proofs/PathChecks"
+roots = ["Case3Path0", "Case3Path1", "Case3Path10", "Case3Path11", "Case3Path12", "Case3Path13", "Case3Path14", "Case3Path2", "Case3Path3", "Case3Path4", "Case3Path5", "Case3Path6", "Case3Path7", "Case3Path8", "Case3Path9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N4"
+srcDir = "Cases/N4"
+roots = ["Case4Additional", "Case4Data", "Case4Dataset", "Case4Quiver"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N4_Proofs"
+srcDir = "Cases/N4/Proofs"
+roots = ["Case4Bridge", "Case4Coordinates", "Case4Presentation", "Case4PresentationBase", "Case4RealizationBase", "Case4Result"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N4_Proofs_HomChecks"
+srcDir = "Cases/N4/Proofs/HomChecks"
+roots = ["Case4Hom0", "Case4Hom1", "Case4Hom2", "Case4Hom3", "Case4Hom4", "Case4Hom5", "Case4Hom6", "Case4Hom7", "Case4Hom8"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N4_Proofs_LiftChecks"
+srcDir = "Cases/N4/Proofs/LiftChecks"
+roots = ["Case4LiftRow0", "Case4LiftRow1", "Case4LiftRow2", "Case4LiftRow3", "Case4LiftRow4", "Case4LiftRow5", "Case4LiftRow6", "Case4LiftRow7", "Case4LiftRow8"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N4_Proofs_PathChecks"
+srcDir = "Cases/N4/Proofs/PathChecks"
+roots = ["Case4Path0", "Case4Path1", "Case4Path10", "Case4Path11", "Case4Path12", "Case4Path13", "Case4Path14", "Case4Path15", "Case4Path16", "Case4Path17", "Case4Path18", "Case4Path19", "Case4Path2", "Case4Path20", "Case4Path21", "Case4Path22", "Case4Path23", "Case4Path24", "Case4Path25", "Case4Path26", "Case4Path27", "Case4Path28", "Case4Path29", "Case4Path3", "Case4Path30", "Case4Path31", "Case4Path32", "Case4Path33", "Case4Path34", "Case4Path35", "Case4Path36", "Case4Path37", "Case4Path38", "Case4Path39", "Case4Path4", "Case4Path40", "Case4Path41", "Case4Path42", "Case4Path43", "Case4Path5", "Case4Path6", "Case4Path7", "Case4Path8", "Case4Path9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N5"
+srcDir = "Cases/N5"
+roots = ["Case5Additional", "Case5Data", "Case5Dataset", "Case5Quiver"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N5_Proofs"
+srcDir = "Cases/N5/Proofs"
+roots = ["Case5Bridge", "Case5Coordinates", "Case5Presentation", "Case5RealizationBase", "Case5Result"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N5_Proofs_HomChecks"
+srcDir = "Cases/N5/Proofs/HomChecks"
+roots = ["Case5Hom0", "Case5Hom1", "Case5Hom10", "Case5Hom11", "Case5Hom12", "Case5Hom13", "Case5Hom14", "Case5Hom15", "Case5Hom16", "Case5Hom17", "Case5Hom2", "Case5Hom3", "Case5Hom4", "Case5Hom5", "Case5Hom6", "Case5Hom7", "Case5Hom8", "Case5Hom9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N5_Proofs_Internal"
+srcDir = "Cases/N5/Proofs/Internal"
+roots = ["N5Bridge", "N5C1", "N5C3", "N5Certificate", "N5Computations", "N5Hom", "N5Lifts", "N5Paths", "N5Presentation", "N5Quiver", "N5Reduction"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N5_Proofs_LiftChecks"
+srcDir = "Cases/N5/Proofs/LiftChecks"
+roots = ["Case5LiftRow0", "Case5LiftRow1", "Case5LiftRow10", "Case5LiftRow11", "Case5LiftRow12", "Case5LiftRow13", "Case5LiftRow14", "Case5LiftRow15", "Case5LiftRow16", "Case5LiftRow17", "Case5LiftRow18", "Case5LiftRow2", "Case5LiftRow3", "Case5LiftRow4", "Case5LiftRow5", "Case5LiftRow6", "Case5LiftRow7", "Case5LiftRow8", "Case5LiftRow9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6"
+srcDir = "Cases/N6"
+roots = ["Case6Data", "Case6Dataset", "Case6Quiver"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs"
+srcDir = "Cases/N6/Proofs"
+roots = ["Case6Bridge", "Case6Embedding", "Case6FreeCoordinates", "Case6PathEquiv", "Case6Presentation", "Case6RelationEquiv", "Case6Result"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_EmbeddingChecks"
+srcDir = "Cases/N6/Proofs/EmbeddingChecks"
+roots = ["Case6Embedding0", "Case6Embedding1", "Case6Embedding2", "Case6Embedding3", "Case6Embedding4", "Case6Embedding5"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal"
+srcDir = "Cases/N6/Proofs/Internal"
+roots = ["N6Certificate"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_Data"
+srcDir = "Cases/N6/Proofs/Internal/Data"
+roots = ["N6CompositionData", "N6Data", "N6HomTypes", "N6ImageData", "N6NormalData", "N6PolyEmbedding", "N6QuiverData", "N6Relations"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_FiniteChecks_BasisLifts"
+srcDir = "Cases/N6/Proofs/Internal/FiniteChecks/BasisLifts"
+roots = ["N6BasisLifts0", "N6BasisLifts1", "N6BasisLifts10", "N6BasisLifts11", "N6BasisLifts12", "N6BasisLifts13", "N6BasisLifts14", "N6BasisLifts15", "N6BasisLifts16", "N6BasisLifts17", "N6BasisLifts18", "N6BasisLifts19", "N6BasisLifts2", "N6BasisLifts20", "N6BasisLifts21", "N6BasisLifts22", "N6BasisLifts23", "N6BasisLifts24", "N6BasisLifts25", "N6BasisLifts26", "N6BasisLifts27", "N6BasisLifts28", "N6BasisLifts29", "N6BasisLifts3", "N6BasisLifts30", "N6BasisLifts31", "N6BasisLifts32", "N6BasisLifts33", "N6BasisLifts34", "N6BasisLifts35", "N6BasisLifts36", "N6BasisLifts37", "N6BasisLifts38", "N6BasisLifts39", "N6BasisLifts4", "N6BasisLifts40", "N6BasisLifts41", "N6BasisLifts42", "N6BasisLifts43", "N6BasisLifts44", "N6BasisLifts45", "N6BasisLifts46", "N6BasisLifts5", "N6BasisLifts6", "N6BasisLifts7", "N6BasisLifts8", "N6BasisLifts9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_FiniteChecks_Constraints"
+srcDir = "Cases/N6/Proofs/Internal/FiniteChecks/Constraints"
+roots = ["N6Constraints0", "N6Constraints1", "N6Constraints10", "N6Constraints11", "N6Constraints12", "N6Constraints13", "N6Constraints14", "N6Constraints15", "N6Constraints16", "N6Constraints17", "N6Constraints18", "N6Constraints19", "N6Constraints2", "N6Constraints20", "N6Constraints21", "N6Constraints22", "N6Constraints23", "N6Constraints24", "N6Constraints25", "N6Constraints26", "N6Constraints27", "N6Constraints28", "N6Constraints29", "N6Constraints3", "N6Constraints30", "N6Constraints31", "N6Constraints32", "N6Constraints33", "N6Constraints34", "N6Constraints35", "N6Constraints36", "N6Constraints37", "N6Constraints38", "N6Constraints39", "N6Constraints4", "N6Constraints40", "N6Constraints41", "N6Constraints42", "N6Constraints43", "N6Constraints44", "N6Constraints45", "N6Constraints46", "N6Constraints5", "N6Constraints6", "N6Constraints7", "N6Constraints8", "N6Constraints9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_FiniteChecks_Extensions"
+srcDir = "Cases/N6/Proofs/Internal/FiniteChecks/Extensions"
+roots = ["N6Extensions0", "N6Extensions1", "N6Extensions10", "N6Extensions11", "N6Extensions12", "N6Extensions13", "N6Extensions14", "N6Extensions15", "N6Extensions16", "N6Extensions17", "N6Extensions18", "N6Extensions19", "N6Extensions2", "N6Extensions20", "N6Extensions21", "N6Extensions22", "N6Extensions23", "N6Extensions24", "N6Extensions25", "N6Extensions26", "N6Extensions27", "N6Extensions28", "N6Extensions29", "N6Extensions3", "N6Extensions30", "N6Extensions31", "N6Extensions32", "N6Extensions33", "N6Extensions34", "N6Extensions4", "N6Extensions5", "N6Extensions6", "N6Extensions7", "N6Extensions8", "N6Extensions9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_FiniteChecks_HomImages"
+srcDir = "Cases/N6/Proofs/Internal/FiniteChecks/HomImages"
+roots = ["N6Images0", "N6Images1", "N6Images10", "N6Images11", "N6Images12", "N6Images13", "N6Images14", "N6Images15", "N6Images16", "N6Images17", "N6Images18", "N6Images19", "N6Images2", "N6Images20", "N6Images21", "N6Images22", "N6Images23", "N6Images24", "N6Images25", "N6Images26", "N6Images27", "N6Images28", "N6Images29", "N6Images3", "N6Images30", "N6Images31", "N6Images32", "N6Images33", "N6Images34", "N6Images35", "N6Images36", "N6Images37", "N6Images38", "N6Images39", "N6Images4", "N6Images40", "N6Images41", "N6Images42", "N6Images43", "N6Images44", "N6Images45", "N6Images46", "N6Images5", "N6Images6", "N6Images7", "N6Images8", "N6Images9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_FiniteChecks_HomKinds"
+srcDir = "Cases/N6/Proofs/Internal/FiniteChecks/HomKinds"
+roots = ["N6KindRows0", "N6KindRows1", "N6KindRows10", "N6KindRows11", "N6KindRows12", "N6KindRows13", "N6KindRows14", "N6KindRows15", "N6KindRows16", "N6KindRows17", "N6KindRows18", "N6KindRows19", "N6KindRows2", "N6KindRows20", "N6KindRows21", "N6KindRows22", "N6KindRows23", "N6KindRows24", "N6KindRows25", "N6KindRows26", "N6KindRows27", "N6KindRows28", "N6KindRows29", "N6KindRows3", "N6KindRows30", "N6KindRows31", "N6KindRows32", "N6KindRows33", "N6KindRows34", "N6KindRows35", "N6KindRows36", "N6KindRows37", "N6KindRows38", "N6KindRows39", "N6KindRows4", "N6KindRows40", "N6KindRows41", "N6KindRows42", "N6KindRows43", "N6KindRows44", "N6KindRows45", "N6KindRows46", "N6KindRows5", "N6KindRows6", "N6KindRows7", "N6KindRows8", "N6KindRows9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_FiniteChecks_PathImages"
+srcDir = "Cases/N6/Proofs/Internal/FiniteChecks/PathImages"
+roots = ["N6ImageCheck0", "N6ImageCheck1", "N6ImageCheck10", "N6ImageCheck11", "N6ImageCheck12", "N6ImageCheck13", "N6ImageCheck14", "N6ImageCheck15", "N6ImageCheck16", "N6ImageCheck17", "N6ImageCheck18", "N6ImageCheck19", "N6ImageCheck2", "N6ImageCheck20", "N6ImageCheck21", "N6ImageCheck22", "N6ImageCheck23", "N6ImageCheck24", "N6ImageCheck25", "N6ImageCheck26", "N6ImageCheck27", "N6ImageCheck28", "N6ImageCheck29", "N6ImageCheck3", "N6ImageCheck30", "N6ImageCheck31", "N6ImageCheck32", "N6ImageCheck33", "N6ImageCheck34", "N6ImageCheck35", "N6ImageCheck36", "N6ImageCheck37", "N6ImageCheck38", "N6ImageCheck39", "N6ImageCheck4", "N6ImageCheck40", "N6ImageCheck41", "N6ImageCheck42", "N6ImageCheck43", "N6ImageCheck44", "N6ImageCheck45", "N6ImageCheck46", "N6ImageCheck5", "N6ImageCheck6", "N6ImageCheck7", "N6ImageCheck8", "N6ImageCheck9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_FiniteChecks_PathSteps"
+srcDir = "Cases/N6/Proofs/Internal/FiniteChecks/PathSteps"
+roots = ["N6ImageStep0", "N6ImageStep1", "N6ImageStep10", "N6ImageStep11", "N6ImageStep12", "N6ImageStep13", "N6ImageStep14", "N6ImageStep15", "N6ImageStep16", "N6ImageStep17", "N6ImageStep18", "N6ImageStep19", "N6ImageStep2", "N6ImageStep20", "N6ImageStep21", "N6ImageStep22", "N6ImageStep23", "N6ImageStep24", "N6ImageStep25", "N6ImageStep26", "N6ImageStep27", "N6ImageStep28", "N6ImageStep29", "N6ImageStep3", "N6ImageStep30", "N6ImageStep31", "N6ImageStep32", "N6ImageStep33", "N6ImageStep34", "N6ImageStep4", "N6ImageStep5", "N6ImageStep6", "N6ImageStep7", "N6ImageStep8", "N6ImageStep9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_FiniteChecks_Products"
+srcDir = "Cases/N6/Proofs/Internal/FiniteChecks/Products"
+roots = ["N6Products0", "N6Products1", "N6Products10", "N6Products11", "N6Products12", "N6Products13", "N6Products2", "N6Products3", "N6Products4", "N6Products5", "N6Products6", "N6Products7", "N6Products8", "N6Products9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_FiniteChecks_Reductions"
+srcDir = "Cases/N6/Proofs/Internal/FiniteChecks/Reductions"
+roots = ["N6Reduced0", "N6Reduced1", "N6Reduced10", "N6Reduced11", "N6Reduced12", "N6Reduced13", "N6Reduced14", "N6Reduced15", "N6Reduced16", "N6Reduced17", "N6Reduced18", "N6Reduced19", "N6Reduced2", "N6Reduced20", "N6Reduced21", "N6Reduced22", "N6Reduced23", "N6Reduced3", "N6Reduced4", "N6Reduced5", "N6Reduced6", "N6Reduced7", "N6Reduced8", "N6Reduced9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_FiniteChecks_Rules"
+srcDir = "Cases/N6/Proofs/Internal/FiniteChecks/Rules"
+roots = ["N6Rules10", "N6Rules11", "N6Rules12", "N6Rules13", "N6Rules14", "N6Rules15", "N6Rules16", "N6Rules17", "N6Rules18", "N6Rules19", "N6Rules2", "N6Rules20", "N6Rules21", "N6Rules22", "N6Rules23", "N6Rules24", "N6Rules25", "N6Rules26", "N6Rules27", "N6Rules28", "N6Rules29", "N6Rules3", "N6Rules4", "N6Rules5", "N6Rules6", "N6Rules7", "N6Rules8", "N6Rules9"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_Matrices"
+srcDir = "Cases/N6/Proofs/Internal/Matrices"
+roots = ["N6HomOperations", "N6Matrix", "N6Poly", "N6PolyFast", "N6PolyHom"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_Presentation"
+srcDir = "Cases/N6/Proofs/Internal/Presentation"
+roots = ["N6Defining", "N6ImageCertificate", "N6Insert", "N6PathMap", "N6PathPresentation", "N6Spanning", "N6Surjectivity", "N6UniversalDefining"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Cases_N6_Proofs_Internal_Quotient"
+srcDir = "Cases/N6/Proofs/Internal/Quotient"
+roots = ["N6AllLifts", "N6BlockAlgebra", "N6CompositionTable", "N6Dimensions", "N6EndAlgebra", "N6EndReduction", "N6HomCompleteness", "N6HomSpace", "N6Identity", "N6NormalForms", "N6Realization", "N6Support", "N6Total"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Shared"
+srcDir = "Shared"
+roots = ["UniformDataset", "UniformObjects", "UniformPaths", "UniformQuotient"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Shared_Proofs"
+srcDir = "Shared/Proofs"
+roots = ["UniformLocal", "UniformMatrixPaths", "UniformOperations", "UniformPresentationEquiv", "UniformResult", "UniformSpanning"]
+defaultFacets = ["elabArts"]
+
+[[lean_lib]]
+name = "Sources_Shared_Proofs_MatrixModels"
+srcDir = "Shared/Proofs/MatrixModels"
+roots = ["Final"]
+defaultFacets = ["elabArts"]

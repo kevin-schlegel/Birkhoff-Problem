@@ -1,0 +1,298 @@
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1107:41: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1107:45: warning: Unused tactic linter: `ring_nf` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1107:53: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1107:57: warning: Unused tactic linter: `simp_all` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1110:41: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1110:53: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1110:57: warning: Unused tactic linter: `simp_all` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1113:41: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1113:53: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1116:41: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1116:53: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1116:57: warning: Unused tactic linter: `simp_all` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1107:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1107:57: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1110:57: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1116:57: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1226:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1227:84: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.add_apply, compress, Allowed, phi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1227:101: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, compress, Allowed, phi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1232:59: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, compress, Allowed, phi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1235:42: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.add_apply, compress, Allowed, phi, Matrix.one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1235:59: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, compress, Allowed, phi, Matrix.one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1235:93: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Pi.add_apply, compress, Allowed, phi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1242:20: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.add_apply, compress, Allowed, phi, Matrix.mul_apply, Fin.sum_univ_succ, lower_left, lower_right,
+    right_shared, Shared]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1242:37: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, compress, Allowed, phi, Matrix.mul_apply, Fin.sum_univ_succ, lower_left, lower_right,
+    right_shared, Shared]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1242:129: warning: This simp argument is unused:
+  right_shared
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Pi.add_apply, compress, Allowed, phi, Matrix.mul_apply, Fin.sum_univ_succ, lower_left,
+    lower_right, Shared]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1242:142: warning: This simp argument is unused:
+  Shared
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Pi.add_apply, compress, Allowed, phi, Matrix.mul_apply, Fin.sum_univ_succ, lower_left,
+    lower_right, right_shared]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1246:12: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.add_apply, compress, Allowed, phi, Algebra.algebraMap_eq_smul_one, Matrix.one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1246:29: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, compress, Allowed, phi, Algebra.algebraMap_eq_smul_one, Matrix.one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1246:94: warning: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Pi.add_apply, compress, Allowed, phi, Algebra.algebraMap_eq_smul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1242:150: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1257:20: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.add_apply, leftIndex, rightIndex, Cross, compress, Allowed, sectionPair, leftIndex, rightIndex,
+    Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1257:37: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, leftIndex, rightIndex, Cross, compress, Allowed, sectionPair, leftIndex, rightIndex,
+    Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1257:77: warning: This simp argument is unused:
+  compress
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Pi.add_apply, leftIndex, rightIndex, Cross, Allowed, sectionPair, leftIndex,
+    rightIndex, Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1257:86: warning: This simp argument is unused:
+  Allowed
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Pi.add_apply, leftIndex, rightIndex, Cross, compress, sectionPair, leftIndex,
+    rightIndex, Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1260:20: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.add_apply, leftIndex, rightIndex, Cross, compress, Allowed, sectionPair, leftIndex, rightIndex,
+    Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1260:37: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, leftIndex, rightIndex, Cross, compress, Allowed, sectionPair, leftIndex, rightIndex,
+    Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1260:77: warning: This simp argument is unused:
+  compress
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Pi.add_apply, leftIndex, rightIndex, Cross, Allowed, sectionPair, leftIndex,
+    rightIndex, Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1260:86: warning: This simp argument is unused:
+  Allowed
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Pi.add_apply, leftIndex, rightIndex, Cross, compress, sectionPair, leftIndex,
+    rightIndex, Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1263:20: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.add_apply, leftIndex, rightIndex, Cross, compress, Allowed, sectionPair, leftIndex, rightIndex,
+    Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1263:37: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, leftIndex, rightIndex, Cross, compress, Allowed, sectionPair, leftIndex, rightIndex,
+    Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1263:77: warning: This simp argument is unused:
+  compress
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Pi.add_apply, leftIndex, rightIndex, Cross, Allowed, sectionPair, leftIndex,
+    rightIndex, Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1263:86: warning: This simp argument is unused:
+  Allowed
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, Pi.add_apply, leftIndex, rightIndex, Cross, compress, sectionPair, leftIndex,
+    rightIndex, Cross]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1272:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1330:133: warning: This simp argument is unused:
+  lower_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sectionPair, leftIndex, rightIndex, phi, compress, Allowed, relationPair, Cross, crossRow, crossCol,
+    kernelCoefficients, lower_left]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1334:122: warning: This simp argument is unused:
+  lower_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sectionPair, leftIndex, rightIndex, phi, compress, Allowed, relationPair, Cross, crossRow, crossCol,
+    kernelCoefficients, lower_right]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1330:146: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1330:150: warning: Unused tactic linter: `ring` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1334:146: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1334:150: warning: Unused tactic linter: `ring` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1330:150: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1334:150: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1346:40: warning: This simp argument is unused:
+  Matrix.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.add_apply, compress, Allowed, phi, relationPair, Cross, crossRow, crossCol]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspaces/Birkhoff-Problem/UniserialComputations/Shared/Proofs/MatrixModels/Final.lean:1346:57: warning: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.add_apply, compress, Allowed, phi, relationPair, Cross, crossRow, crossCol]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,24 @@
+{
+  "toolchain": {
+    "lean": "Lean (version 4.36.0-rc2, x86_64-unknown-linux-gnu, commit b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a, Release)",
+    "lean_toolchain_sha256": "11c697aebe5b539d74f5069e497a588e7dfab1c4eeb74313f28357e351c55ca3",
+    "lakefile_sha256": "37c35e671e96ab158f9f7e47767b0f66e2d553374cf461b7e9dfe6cdff342a22",
+    "lake_manifest_sha256": "fd2ca39657fc2b700c3043016ba40a8b2f18d29dd210edd08c5dfd13c124801a"
+  },
+  "compiler_results": {
+    "UniformObjects": {
+      "exit_code": 0,
+      "seconds": 945.0,
+      "source": "Shared/UniformObjects.lean",
+      "source_sha256": "982fc019b18d90810693645f41315722e1efd0dbc30017367b8de10e91be1670",
+      "olean_sha256": "7f7cefbadc784276811141fa3eb25312c83503f1682b5b3aebac8a41ac5bc42e"
+    },
+    "Final": {
+      "exit_code": 0,
+      "seconds": 1526.95,
+      "source": "Shared/Proofs/MatrixModels/Final.lean",
+      "source_sha256": "e2121fb4bfb8af0165162f50ff52c9e45b0f9b50f74aba388e442cbd101a2429",
+      "olean_sha256": "171326c4317fca405d0606188c221de477e80d3faab34c6d06f3229101d3a380"
+    }
+  }
+}
