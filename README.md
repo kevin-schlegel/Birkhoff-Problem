@@ -1,67 +1,70 @@
-# Uniserial computations
+# Birkhoff problem: Lean certificate
 
-Lean verification of finite matrix, embedding, and quiver computations for ring lengths 2–6. Every case uses the same elementary definitions of cyclic-module objects, commuting-square morphisms, ordinary endomorphisms, annihilation quotients, path algebras, and relations.
+This repository contains a Lean 4 formalization, using mathlib, of the finite algebra and embedding computations used in the paper for ring lengths $n=2,3,4,5,6$. The cases share definitions of cyclic-module objects, commuting-square morphisms, endomorphism algebras, quivers, and relations.
 
-## Mathematical statements
+## Verified statements
 
-Start with **`Statements.lean`**. It defines the common assertions `C2` and `C3` and proves their instances for the explicit datasets.
+[Statements.lean](Statements.lean) is the entry point for the mathematical claims.
 
-| Length | C2 objects | Quiver arrows | Listed relations | Algebra dimension | Additional C3 objects |
-|---:|---:|---:|---:|---:|---:|
-| 2 | 3 | 2 | 0 | 6 | 0 |
-| 3 | 5 | 4 | 0 | 15 | 0 |
-| 4 | 9 | 9 | 1 | 44 | 1 |
-| 5 | 18 | 23 | 10 | 179 | 12 |
-| 6 | 47 | 75 | 47 | 1708 | — |
+- **C2:** For each length from 2 to 6, the specified vertex and arrow matrices define a surjective algebra homomorphism from the path algebra to the computed quotient endomorphism algebra. The listed relations vanish, and the presented algebra and the target have the same stated finite dimension.
+- **C3:** For the additional objects requiring a separate check beyond the paper's C1 construction, the ordinary endomorphism rings are local. The additional matrices are also proved to define embeddings. These checks concern one object at length 4 and twelve at length 5; the additional families at lengths 2 and 3 are empty. No C3 assertion is made for length 6.
 
-`n2_C2` through `n6_C2` assert that an algebra homomorphism from the specified path algebra to the quotient endomorphism algebra has the listed vertex and arrow images, annihilates the specified two-sided relation ideal, and is surjective. Both algebras are finite dimensional, with the dimension shown above. The presented algebra is constructed by imposing those same relations using `RingQuot`.
+The C2 datasets have the following sizes:
 
-`n2_C3` through `n5_C3` assert `IsLocalRing` for the **ordinary endomorphism rings in the monomorphism category** of the additional listed objects. Only the additional objects outside the C1 family are included. The C1 family consists of the listed AR translates and the two standard objects `0 → R` and `R → R` with identity map. The additional checks concern object 26 at length 4, and objects 33, 35, 38, 40, 41, 42, 44, 45, 46, 47, 48, and 49 at length 5. The additional families for lengths 2 and 3 are empty. There is no C3 assertion for length 6.
+| Ring length | Objects | Arrows | Listed relations | Algebra dimension |
+|---:|---:|---:|---:|---:|
+| 2 | 3 | 2 | 0 | 6 |
+| 3 | 5 | 4 | 0 | 15 |
+| 4 | 9 | 9 | 1 | 44 |
+| 5 | 18 | 23 | 10 | 179 |
+| 6 | 47 | 75 | 47 | 1708 |
 
-The ordinary ring is `ObjectFamily.OrdinaryEnd`. Its elements are commuting squares, with representatives identified exactly when both the ambient and source maps agree on their cyclic modules. For a target summand of length `l`, this means that the corresponding matrix entries differ by a multiple of `π^l`. The theorem `ordinaryClass_eq_iff_cyclic_congruence` verifies this equality criterion. C3 does not identify endomorphisms modulo maps factoring through smaller objects; that annihilation quotient is used only in C2.
+The corresponding public theorems are `n2_C2` through `n6_C2` and `n2_C3` through `n5_C3`.
 
-The files `Case4AdditionalResult.lean` and `Case5AdditionalResult.lean` also prove that every additional matrix descends to an **injective** map of cyclic-module sums. The `IsEmbedding` predicate checks descent and the exact kernel condition on representatives. Thus the objects used in C3 are verified embeddings.
+## Mathematical setup and scope
 
-For locality, the finite residue calculations show that every diagonal entry in both matrices of an endomorphism has the same residue. The cyclic summand lengths are strictly decreasing, so the residue matrices of an endomorphism with zero diagonal residue are strictly lower triangular after removing length-zero ambient rows. The general proof lifts their nilpotence to the ordinary endomorphism ring. A nonzero residue gives a unit; a zero residue gives a nilpotent element and hence a unit complement. The conclusion is `IsLocalRing`, with the entire argument checked in Lean.
+Objects and morphisms are described by matrices between finite direct sums of cyclic modules $R/(\pi^l)$. The hypotheses `RingParameters` specify a commutative ring $R$, a residue field $k$, an element $\pi$, and a surjective residue map $\rho : R \to k$, with $\pi^n=0$, $\ker\rho=\pi R$, and $\operatorname{Ann}(\pi^{n-l})=\pi^lR$ for $0\leq l\leq n$. No coefficient-field embedding $k\hookrightarrow R$ is assumed.
 
-## Reading the formalization
+For C2, Lean constructs an algebraic quotient of commuting-square matrices: two representatives are identified when $\pi^{n-1}$ annihilates the difference of their ambient module maps. Its algebra structure and matrix realization are verified. The categorical ideal quotient itself, and the identification of this algebra with the relevant endomorphism algebra in that category, are not formalized. Those identifications, the interpretation of the supplied formulas as Auslander–Reiten translates, and the classification argument belong to the paper.
 
-- **`Statements.lean`** contains the public mathematical claims and short invocations of their proofs.
-- **`Cases/N2/Case2Data.lean`**, and the corresponding files for lengths 3–6, list the object labels, cyclic summand lengths, and embedding matrices.
-- **`Case2Quiver.lean`** and its counterparts list the quivers, signed relations, and arrow matrices. **`Case2Dataset.lean`** and its counterparts assemble the inputs; the **`Additional`** files list the C3 inputs where applicable.
-- **`Shared/`** defines the common mathematical objects. `UniformObjects.lean` defines the ring hypotheses and commuting-square matrices. `UniformOrdinaryEnd.lean` defines ordinary equality, the ordinary endomorphism ring, and the embedding predicate. `UniformQuotient.lean` constructs the annihilation quotient used in C2. `UniformPaths.lean` defines the path algebra and relation ideal.
-- **`Shared/Proofs/UniformOrdinaryLocal.lean`** proves the general nilpotence and ordinary-locality criteria. **`Case4OrdinaryResidues.lean`**, **`Case5OrdinaryResidues.lean`**, and the corresponding **`AdditionalResult`** files prove the finite residue constraints, injectivity, and locality for the additional objects.
-- **`Proofs/` directories** contain the supporting algebra and finite computations. For C2, the internal matrix models are connected by proved equivalences to the common annihilation quotient used in the public statements. Large finite computations are split into smaller modules to limit compiler memory use.
-- **`Audit.lean`** checks the axiom dependencies of the public theorems, the ordinary-ring equality and operations, the locality criterion, the embedding proofs, and the principal C2 quotient constructions.
+## Repository layout
 
-Human review should check the claims, their common definitions, and the concrete input tables against the intended mathematics. Lean checks that the proofs establish those formal claims; it does not determine whether the chosen inputs or claims express the intended problem.
+- [Statements.lean](Statements.lean): common assertions and public case theorems.
+- [Cases/](Cases/): data and proofs for lengths 2–6. The `Data`, `Quiver`, and `Dataset` files specify the objects, arrows, relations, and their assembly; `Additional` files supply the extra embeddings.
+- [Shared/](Shared/): common ring hypotheses, matrix morphisms, ordinary endomorphism rings, the annihilation quotient, and path algebras.
+- `Proofs/` directories: supporting algebra and finite computations, split into smaller modules where needed.
+- [Audit.lean](Audit.lean): axiom-dependency checks.
+- [verify.py](verify.py): compilation and audit driver.
 
-The scalar hypotheses are explicit in `RingParameters`: a commutative ring `R`, a field `k`, a positive length `n`, an element `π` with `π^n = 0`, and a surjective ring homomorphism `ρ : R →+* k` with kernel `πR`. For each `l ≤ n`, the annihilator of `π^(n-l)` is required to be `π^l R`. No embedding of `k` into `R` is assumed. The C2 quotient's scalar action is induced by `ρ`; multiplication by `π` is proved to vanish there. The ordinary endomorphism ring used in C3 is an `R`-algebra.
+In the input tables, an entry `(c,e)` represents $c\pi^e$; rows are target coordinates and columns are source coordinates. A length-zero summand is the zero module. Paths list arrows in traversal order, so `[a,b]` evaluates as `φ(b) * φ(a)`. Internal object and arrow indices are zero-based; the stored object labels retain the paper's notation.
 
-Rows of matrices are target coordinates and columns are source coordinates. An embedding entry `(c,e)` denotes `c * π^e`; a summand of length zero is zero. Arrow lists in paths use traversal order, so `[a,b]` evaluates as `φ(b) * φ(a)`. Object indices and arrow indices are zero-based.
+## Running the verification
 
-The formalization verifies the listed elementary computations. It does not prove a classification of indecomposables, identify a matrix formula with Auslander–Reiten translation, or establish a categorical factorization criterion. The prescribed annihilation condition defines the C2 quotient. C3 uses ordinary equality of cyclic-module maps and proves locality for the additional embeddings themselves.
+Install Git, Python **3.11 or newer**, and Lean through [elan](https://lean-lang.org/install/manual/). The Lean version is fixed by [lean-toolchain](lean-toolchain); the mathlib revision and dependencies are specified in the Lake configuration and manifest.
 
-## Verification
-
-Requirements: Lean managed by `elan`, Git, and Python 3.11 or newer. The exact Lean version is pinned in `lean-toolchain`; the mathlib revision and its dependencies are pinned in the Lake configuration and manifest.
-
-From this directory, run:
+The commands below work in macOS, Linux, or Windows with WSL. Run them from the repository root:
 
 ```sh
-lake update
-lake exe cache get
-python3 verify.py --jobs 2
+export PATH="$HOME/.elan/bin:$PATH"
+lake update &&
+lake exe cache get &&
+python3 verify.py --jobs 1
 ```
 
-The verifier compiles every project module in dependency order, checks that all included Lean files belong to the public theorem dependency graph, rejects proof admissions and unsupported proof escapes, and audits the reported axioms. The permitted axioms are `propext`, `Classical.choice`, and `Quot.sound`. Results and compiler logs are written under `.verification/`.
+If `lake` is still not found, complete the elan installation and reopen the terminal.
 
-For an interrupted run, use:
+The verifier compiles every project module, checks the source inventory and dependency graph, rejects proof admissions and unsupported proof shortcuts, and audits the reported axioms. The permitted axioms are `propext`, `Classical.choice`, and `Quot.sound`.
+
+A successful run ends with `PASS: … modules; … audited declarations.` The larger computations can take substantial time, and progress is printed when each module finishes. `--jobs 1` limits simultaneous compilation; more jobs may help on a machine with sufficient memory.
+
+To continue an interrupted run:
 
 ```sh
-python3 verify.py --jobs 2 --resume
+export PATH="$HOME/.elan/bin:$PATH"
+python3 verify.py --jobs 1 --resume
 ```
 
-Resume mode checks recorded source and compiled-file hashes and invalidates changed modules and their dependents. Without `--resume`, every project module is recompiled. The larger cases can take substantial time and memory; use `--jobs 1` if needed. `lake build` also compiles the public entry points, while the Python verifier additionally enforces the source inventory and axiom audit.
+Resume mode reuses recorded checks only after validating the relevant hashes and toolchain. Without `--resume`, the verifier recompiles all project modules.
 
-The distribution contains the required Lean sources, this README, and the build and verification configuration. Generated build files and caches are not included.
+Compiler logs, saved progress, and the final `result.json` report are written to `.verification/`. Lake stores dependencies and build files in `.lake/`. Both directories are generated locally and need not be included in the repository. `lake build` also compiles the public entry points; the Python verifier performs the additional inventory and axiom checks.
+
