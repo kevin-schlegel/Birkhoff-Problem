@@ -7,6 +7,8 @@ import Case2Additional
 import Case3Additional
 import Case4Additional
 import Case5Additional
+import Case4AdditionalResult
+import Case5AdditionalResult
 
 /-!
 # Statements for the five finite computations
@@ -37,7 +39,15 @@ relations. `quiver.Presented` imposes those same relations as a ring quotient.
 `Dataset.matrix` reads a quotient endomorphism on the free ambient summands;
 it is faithful. Vertex and arrow images below are the explicit dataset matrices.
 
-Only the finite algebra computations are asserted. No classification of
+`ObjectFamily.OrdinaryEnd` is the ordinary endomorphism ring used in C3.
+Both source and ambient maps are retained, and two representatives are equal
+exactly when their entries agree in the corresponding target cyclic modules.
+`ordinaryClass_eq_iff_cyclic_congruence` proves this exact equality criterion.
+The additional matrices are proved to descend to injective module maps.
+Their diagonal residue constraints imply nilpotence of an endomorphism with
+zero residue, and hence locality of the ordinary endomorphism ring.
+
+Only the finite algebra and embedding computations are asserted. No classification of
 indecomposables, Auslander–Reiten translation theorem, or categorical
 factorization criterion is a premise or a conclusion of these statements.
 -/
@@ -60,14 +70,12 @@ def C2 (D : Dataset) (dimension : Nat) {R k : Type*} [CommRing R] [Field k]
     Module.finrank k (D.Presented k) = dimension ∧
     Module.finrank k (D.End k π ρ h) = dimension
 
-/-- The same C3 assertion for each additional family: every listed object's
-individual quotient endomorphism ring is local. The coordinate maps enumerate
-exactly its free ambient summands, as checked by `FreeCoordinates`. -/
-def C3 (D : ObjectFamily)
-    (C : ∀ i : Fin D.vertices, FreeCoordinates (D.singleObject i) (Fin 1))
-    {R k : Type*} [CommRing R] [Field k]
+/-- C3 for the additional objects not already supplied by the AR-translate
+construction: their ordinary endomorphism rings are local. The matrices are
+proved to be embeddings in `Case4.embeddings` and `Case5.embeddings`. -/
+def C3 (D : ObjectFamily) {R k : Type*} [CommRing R] [Field k]
     (π : R) (ρ : R →+* k) (h : RingParameters D.length R k π ρ) : Prop :=
-  ∀ i : Fin D.vertices, IsLocalRing (EndAlgebra (C i) π ρ h)
+  ∀ i : Fin D.vertices, IsLocalRing (D.OrdinaryEnd π ρ h i)
 
 variable {R k : Type*} [CommRing R] [Field k] (π : R) (ρ : R →+* k)
 
@@ -93,23 +101,23 @@ theorem n6_C2 (h : RingParameters 6 R k π ρ) : C2 Data.case6 1708 π ρ h :=
 
 /-- C3 for n=2. The additional family is empty. -/
 theorem n2_C3 (h : RingParameters 2 R k π ρ) :
-    C3 Data.additional2 Data.additionalCoordinates2 π ρ h :=
-  fun i => Uniform.oneFree_local (Data.additionalCoordinates2 i) π ρ h
+    C3 Data.additional2 π ρ h :=
+  fun i => Fin.elim0 i
 
 /-- C3 for n=3. The additional family is empty. -/
 theorem n3_C3 (h : RingParameters 3 R k π ρ) :
-    C3 Data.additional3 Data.additionalCoordinates3 π ρ h :=
-  fun i => Uniform.oneFree_local (Data.additionalCoordinates3 i) π ρ h
+    C3 Data.additional3 π ρ h :=
+  fun i => Fin.elim0 i
 
 /-- C3 for n=4. The additional family contains object 26. -/
 theorem n4_C3 (h : RingParameters 4 R k π ρ) :
-    C3 Data.additional4 Data.additionalCoordinates4 π ρ h :=
-  fun i => Uniform.oneFree_local (Data.additionalCoordinates4 i) π ρ h
+    C3 Data.additional4 π ρ h :=
+  Uniform.Case4.ordinary_local π ρ h
 
 /-- C3 for n=5. The additional family contains the twelve explicitly listed objects. -/
 theorem n5_C3 (h : RingParameters 5 R k π ρ) :
-    C3 Data.additional5 Data.additionalCoordinates5 π ρ h :=
-  fun i => Uniform.oneFree_local (Data.additionalCoordinates5 i) π ρ h
+    C3 Data.additional5 π ρ h :=
+  Uniform.Case5.ordinary_local π ρ h
 
 -- No C3 assertion is made for n=6.
 end UniserialComputations

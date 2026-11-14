@@ -1,4 +1,4 @@
-import UniformLocal
+import UniformObjects
 namespace UniserialComputations.Uniform.Data
 /-- Additional objects for the locality computation, in database order. -/
 abbrev additional5 : ObjectFamily where
@@ -52,11 +52,4 @@ abbrev additional5 : ObjectFamily where
   ambientBound := by decide
   sourceBound := by decide
 
-abbrev additionalCoordinates5 (i : Fin additional5.vertices) :
-    FreeCoordinates (additional5.singleObject i) (Fin 1) where
-  vertex := fun _ => 0
-  row := fun _ => 0
-  valid := by fin_cases i <;> decide
-  injective := fun _ _ _ => Subsingleton.elim _ _
-  complete := by fin_cases i <;> decide
 end UniserialComputations.Uniform.Data

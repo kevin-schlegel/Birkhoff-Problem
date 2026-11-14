@@ -82,7 +82,7 @@ defaultFacets = ["elabArts"]
 [[lean_lib]]
 name = "Sources_Cases_N4_Proofs"
 srcDir = "Cases/N4/Proofs"
-roots = ["Case4Bridge", "Case4Coordinates", "Case4Presentation", "Case4PresentationBase", "Case4RealizationBase", "Case4Result"]
+roots = ["Case4AdditionalResult", "Case4OrdinaryResidues", "Case4Bridge", "Case4Coordinates", "Case4Presentation", "Case4PresentationBase", "Case4RealizationBase", "Case4Result"]
 defaultFacets = ["elabArts"]
 
 [[lean_lib]]
@@ -112,7 +112,7 @@ defaultFacets = ["elabArts"]
 [[lean_lib]]
 name = "Sources_Cases_N5_Proofs"
 srcDir = "Cases/N5/Proofs"
-roots = ["Case5Bridge", "Case5Coordinates", "Case5Presentation", "Case5RealizationBase", "Case5Result"]
+roots = ["Case5AdditionalResult", "Case5OrdinaryResidues", "Case5Bridge", "Case5Coordinates", "Case5Presentation", "Case5RealizationBase", "Case5Result"]
 defaultFacets = ["elabArts"]
 
 [[lean_lib]]
@@ -124,7 +124,7 @@ defaultFacets = ["elabArts"]
 [[lean_lib]]
 name = "Sources_Cases_N5_Proofs_Internal"
 srcDir = "Cases/N5/Proofs/Internal"
-roots = ["N5Bridge", "N5C1", "N5C3", "N5Certificate", "N5Computations", "N5Hom", "N5Lifts", "N5Paths", "N5Presentation", "N5Quiver", "N5Reduction"]
+roots = ["N5Bridge", "N5C1", "N5Certificate", "N5Computations", "N5Hom", "N5Lifts", "N5Paths", "N5Presentation", "N5Quiver", "N5Reduction"]
 defaultFacets = ["elabArts"]
 
 [[lean_lib]]
@@ -244,13 +244,13 @@ defaultFacets = ["elabArts"]
 [[lean_lib]]
 name = "Sources_Shared"
 srcDir = "Shared"
-roots = ["UniformDataset", "UniformObjects", "UniformPaths", "UniformQuotient"]
+roots = ["UniformOrdinaryEnd", "UniformDataset", "UniformObjects", "UniformPaths", "UniformQuotient"]
 defaultFacets = ["elabArts"]
 
 [[lean_lib]]
 name = "Sources_Shared_Proofs"
 srcDir = "Shared/Proofs"
-roots = ["UniformLocal", "UniformMatrixPaths", "UniformOperations", "UniformPresentationEquiv", "UniformResult", "UniformSpanning"]
+roots = ["UniformOrdinaryLocal", "UniformMatrixPaths", "UniformOperations", "UniformPresentationEquiv", "UniformResult", "UniformSpanning"]
 defaultFacets = ["elabArts"]
 
 [[lean_lib]]

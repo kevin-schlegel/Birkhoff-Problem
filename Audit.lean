@@ -15,4 +15,9 @@ import Statements
 #print axioms UniserialComputations.Uniform.EndAlgebra.classOf_mul
 #print axioms UniserialComputations.Uniform.EndAlgebra.classOf_scale
 #print axioms UniserialComputations.Uniform.EndAlgebra.classOf_pi_zero
-#print axioms UniserialComputations.Uniform.oneFreeEquiv
+#print axioms UniserialComputations.Uniform.ObjectFamily.ordinaryClass_eq_iff_cyclic_congruence
+#print axioms UniserialComputations.Uniform.ObjectFamily.ordinaryClass_add
+#print axioms UniserialComputations.Uniform.ObjectFamily.ordinaryClass_mul
+#print axioms UniserialComputations.Uniform.ObjectFamily.ordinary_local_of_diagonal_residues
+#print axioms UniserialComputations.Uniform.Case4.embeddings
+#print axioms UniserialComputations.Uniform.Case5.embeddings

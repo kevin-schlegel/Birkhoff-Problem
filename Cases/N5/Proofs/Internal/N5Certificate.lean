@@ -1,7 +1,6 @@
 import N5Presentation
 import N5Bridge
 import N5C1
-import N5C3
 noncomputable section
 namespace UniserialComputations.N5
 variable (k : Type*) [Field k]

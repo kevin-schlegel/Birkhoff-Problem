@@ -1,6 +1,6 @@
 # Uniserial computations
 
-Lean verification of finite matrix and quiver computations for ring lengths 2–6. Every case uses the same elementary definitions of objects, morphisms, annihilation quotients, path algebras, and relations.
+Lean verification of finite matrix, embedding, and quiver computations for ring lengths 2–6. Every case uses the same elementary definitions of cyclic-module objects, commuting-square morphisms, ordinary endomorphisms, annihilation quotients, path algebras, and relations.
 
 ## Mathematical statements
 
@@ -16,24 +16,31 @@ Start with **`Statements.lean`**. It defines the common assertions `C2` and `C3`
 
 `n2_C2` through `n6_C2` assert that an algebra homomorphism from the specified path algebra to the quotient endomorphism algebra has the listed vertex and arrow images, annihilates the specified two-sided relation ideal, and is surjective. Both algebras are finite dimensional, with the dimension shown above. The presented algebra is constructed by imposing those same relations using `RingQuot`.
 
-`n2_C3` through `n5_C3` assert `IsLocalRing` for the individual quotient endomorphism rings of the additional listed objects. The additional families for lengths 2 and 3 are empty. There is no C3 assertion for length 6.
+`n2_C3` through `n5_C3` assert `IsLocalRing` for the **ordinary endomorphism rings in the monomorphism category** of the additional listed objects. Only the additional objects outside the C1 family are included. The C1 family consists of the listed AR translates and the two standard objects `0 → R` and `R → R` with identity map. The additional checks concern object 26 at length 4, and objects 33, 35, 38, 40, 41, 42, 44, 45, 46, 47, 48, and 49 at length 5. The additional families for lengths 2 and 3 are empty. There is no C3 assertion for length 6.
+
+The ordinary ring is `ObjectFamily.OrdinaryEnd`. Its elements are commuting squares, with representatives identified exactly when both the ambient and source maps agree on their cyclic modules. For a target summand of length `l`, this means that the corresponding matrix entries differ by a multiple of `π^l`. The theorem `ordinaryClass_eq_iff_cyclic_congruence` verifies this equality criterion. C3 does not identify endomorphisms modulo maps factoring through smaller objects; that annihilation quotient is used only in C2.
+
+The files `Case4AdditionalResult.lean` and `Case5AdditionalResult.lean` also prove that every additional matrix descends to an **injective** map of cyclic-module sums. The `IsEmbedding` predicate checks descent and the exact kernel condition on representatives. Thus the objects used in C3 are verified embeddings.
+
+For locality, the finite residue calculations show that every diagonal entry in both matrices of an endomorphism has the same residue. The cyclic summand lengths are strictly decreasing, so the residue matrices of an endomorphism with zero diagonal residue are strictly lower triangular after removing length-zero ambient rows. The general proof lifts their nilpotence to the ordinary endomorphism ring. A nonzero residue gives a unit; a zero residue gives a nilpotent element and hence a unit complement. The conclusion is `IsLocalRing`, with the entire argument checked in Lean.
 
 ## Reading the formalization
 
 - **`Statements.lean`** contains the public mathematical claims and short invocations of their proofs.
 - **`Cases/N2/Case2Data.lean`**, and the corresponding files for lengths 3–6, list the object labels, cyclic summand lengths, and embedding matrices.
 - **`Case2Quiver.lean`** and its counterparts list the quivers, signed relations, and arrow matrices. **`Case2Dataset.lean`** and its counterparts assemble the inputs; the **`Additional`** files list the C3 inputs where applicable.
-- **`Shared/`** defines the common mathematical objects. In particular, `UniformObjects.lean` defines the ring hypotheses and commuting-square matrices; `UniformQuotient.lean` constructs the actual quotient and its algebra structure; `UniformPaths.lean` defines the path algebra and relation ideal.
-- **`Proofs/` directories** contain the supporting algebra and finite computations. Their internal matrix models are connected by proved equivalences to the common quotient used in the public statements. Large finite computations are split into smaller modules to limit compiler memory use.
-- **`Audit.lean`** checks the axiom dependencies of the public theorems and the principal quotient constructions.
+- **`Shared/`** defines the common mathematical objects. `UniformObjects.lean` defines the ring hypotheses and commuting-square matrices. `UniformOrdinaryEnd.lean` defines ordinary equality, the ordinary endomorphism ring, and the embedding predicate. `UniformQuotient.lean` constructs the annihilation quotient used in C2. `UniformPaths.lean` defines the path algebra and relation ideal.
+- **`Shared/Proofs/UniformOrdinaryLocal.lean`** proves the general nilpotence and ordinary-locality criteria. **`Case4OrdinaryResidues.lean`**, **`Case5OrdinaryResidues.lean`**, and the corresponding **`AdditionalResult`** files prove the finite residue constraints, injectivity, and locality for the additional objects.
+- **`Proofs/` directories** contain the supporting algebra and finite computations. For C2, the internal matrix models are connected by proved equivalences to the common annihilation quotient used in the public statements. Large finite computations are split into smaller modules to limit compiler memory use.
+- **`Audit.lean`** checks the axiom dependencies of the public theorems, the ordinary-ring equality and operations, the locality criterion, the embedding proofs, and the principal C2 quotient constructions.
 
 Human review should check the claims, their common definitions, and the concrete input tables against the intended mathematics. Lean checks that the proofs establish those formal claims; it does not determine whether the chosen inputs or claims express the intended problem.
 
-The scalar hypotheses are explicit in `RingParameters`: a commutative ring `R`, a field `k`, a positive length `n`, an element `π` with `π^n = 0`, and a surjective ring homomorphism `ρ : R →+* k` with kernel `πR`. For each `l ≤ n`, the annihilator of `π^(n-l)` is required to be `π^l R`. No embedding of `k` into `R` is assumed. The quotient's scalar action is induced by `ρ`; multiplication by `π` is proved to vanish there.
+The scalar hypotheses are explicit in `RingParameters`: a commutative ring `R`, a field `k`, a positive length `n`, an element `π` with `π^n = 0`, and a surjective ring homomorphism `ρ : R →+* k` with kernel `πR`. For each `l ≤ n`, the annihilator of `π^(n-l)` is required to be `π^l R`. No embedding of `k` into `R` is assumed. The C2 quotient's scalar action is induced by `ρ`; multiplication by `π` is proved to vanish there. The ordinary endomorphism ring used in C3 is an `R`-algebra.
 
 Rows of matrices are target coordinates and columns are source coordinates. An embedding entry `(c,e)` denotes `c * π^e`; a summand of length zero is zero. Arrow lists in paths use traversal order, so `[a,b]` evaluates as `φ(b) * φ(a)`. Object indices and arrow indices are zero-based.
 
-The formalization verifies the listed elementary computations. It does not prove a classification of indecomposables, identify a matrix formula with Auslander–Reiten translation, or establish a categorical factorization criterion. The prescribed annihilation condition defines the quotient.
+The formalization verifies the listed elementary computations. It does not prove a classification of indecomposables, identify a matrix formula with Auslander–Reiten translation, or establish a categorical factorization criterion. The prescribed annihilation condition defines the C2 quotient. C3 uses ordinary equality of cyclic-module maps and proves locality for the additional embeddings themselves.
 
 ## Verification
 

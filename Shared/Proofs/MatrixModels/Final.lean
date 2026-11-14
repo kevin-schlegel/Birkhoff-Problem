@@ -343,7 +343,7 @@ theorem corner_local (v : Fin 3) (a : k) :
   · exact ⟨1, Or.inr (by simp [ha])⟩
   · exact ⟨a⁻¹, Or.inl (by simp [ha])⟩
 
-/-- C3: each surviving vertex corner is the residue field.
+/-- Each surviving quotient vertex corner is the residue field.
 The local-ring certificate is the field criterion: x or 1-x is a unit. -/
 theorem vertex_local_certificate (x : k) : IsUnit x ∨ IsUnit (1-x) := by
   by_cases h : x = 0
@@ -1629,75 +1629,6 @@ theorem remaining_objects : remainingIDs=[26] := by decide
 def nextStartingObjects : List DBObject :=
   [⟨26,[3,1],[4,2],[[some 1,some 0],[none,some 1]]⟩]
 
-variable (k : Type*) [Field k]
-section Extra
-variable {R : Type*} [CommRing R] (π : R) (ρ : R →+* k)
-variable (ann : ∀ r : R, π^3*r=0 ↔ ρ r=0)
-
-/-- Endomorphisms of ID26: C₃⊕C₁ → R⊕C₂, columns (π,1),(0,π).
-The ambient matrix is [[r,p],[q,d]], with its second row read modulo π².
-The witnesses x,y,z,w give the images of the two source generators. -/
-structure ExtraEnd where
-  r : R
-  p : R
-  q : R
-  d : R
-  x : R
-  y : R
-  z : R
-  w : R
-  v1 : R
-  v2 : R
-  descent : π^2*p=0
-  first_free : π*r+p=π*x
-  first_torsion : π*q+d=x+π*y+π^2*v1
-  second_free : π*p=π*z
-  second_torsion : π*d=z+π*w+π^2*v2
-
-def extraDiagonal (r : R) : ExtraEnd π where
-  r := r; p := 0; q := 0; d := r
-  x := r; y := 0; z := 0; w := r; v1 := 0; v2 := 0
-  descent := by simp
-  first_free := by simp
-  first_torsion := by simp
-  second_free := by simp
-  second_torsion := by simp
-
-include ann in
-theorem extra_p_zero (f : ExtraEnd π) : ρ f.p=0 := by
-  apply (ann f.p).mp
-  linear_combination π*f.descent
-
-include ann in
-theorem extra_quotient_exact (f g : ExtraEnd π) :
-    (π^3*(f.r-g.r)=0 ∧ π^3*(f.p-g.p)=0) ↔ ρ f.r=ρ g.r := by
-  simp only [ann,map_sub,sub_eq_zero]
-  simp [extra_p_zero k π ρ ann f,extra_p_zero k π ρ ann g]
-
-include ann in
-/-- The free-row coefficient of ambient matrix composition descends to
-ordinary multiplication in k. -/
-theorem extra_composition (f g : ExtraEnd π) :
-    ρ (f.r*g.r+f.p*g.q)=ρ f.r*ρ g.r := by
-  simp [extra_p_zero k π ρ ann f]
-
-theorem extra_surjective (surj : Function.Surjective ρ) :
-    Function.Surjective (fun f : ExtraEnd π => ρ f.r) := by
-  intro a
-  obtain ⟨r,hr⟩ := surj a
-  exact ⟨extraDiagonal π r,hr⟩
-
-/-- Explicit two-sided inverse in the quotient for f or its complement.
-The inverse is represented by extraDiagonal c. -/
-theorem C3_local_certificate (surj : Function.Surjective ρ) (f : ExtraEnd π) :
-    ∃ c : R,
-      (ρ f.r*ρ c=1 ∧ ρ c*ρ f.r=1) ∨
-      ((1-ρ f.r)*ρ c=1 ∧ ρ c*(1-ρ f.r)=1) := by
-  by_cases h : ρ f.r=0
-  · exact ⟨1,Or.inr (by simp [h])⟩
-  · obtain ⟨c,hc⟩ := surj ((ρ f.r)⁻¹)
-    exact ⟨c,Or.inl (by simp [hc,h])⟩
-end Extra
 end N4
 
 end UniserialComputations
