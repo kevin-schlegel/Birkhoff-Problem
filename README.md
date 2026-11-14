@@ -23,7 +23,7 @@ The corresponding public theorems are `n2_C2` through `n6_C2` and `n2_C3` throug
 
 ## Mathematical setup and scope
 
-Objects and morphisms are described by matrices between finite direct sums of cyclic modules $R/(\pi^l)$. The hypotheses `RingParameters` specify a commutative ring $R$, a residue field $k$, an element $\pi$, and a surjective residue map $\rho : R \to k$, with $\pi^n=0$, $\ker\rho=\pi R$, and $\operatorname{Ann}(\pi^{n-l})=\pi^lR$ for $0\leq l\leq n$. No coefficient-field embedding $k\hookrightarrow R$ is assumed.
+Objects and morphisms are described by matrices between finite direct sums of cyclic modules $R/(\pi^l)$. The hypotheses `RingParameters` specify a commutative ring $R$, a residue field $k$, an element $\pi$, and a surjective residue map $\rho : R \to k$, with $\pi^n=0$, $\ker\rho=\pi R$, and $\mathrm{Ann}(\pi^{n-l})=\pi^lR$ for $0\leq l\leq n$. No coefficient-field embedding $k\hookrightarrow R$ is assumed.
 
 For C2, Lean constructs an algebraic quotient of commuting-square matrices: two representatives are identified when $\pi^{n-1}$ annihilates the difference of their ambient module maps. Its algebra structure and matrix realization are verified. The categorical ideal quotient itself, and the identification of this algebra with the relevant endomorphism algebra in that category, are not formalized. Those identifications, the interpretation of the supplied formulas as Auslander–Reiten translates, and the classification argument belong to the paper.
 
