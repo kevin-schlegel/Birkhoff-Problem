@@ -1,10 +1,14 @@
 # Birkhoff problem: Lean certificate
 
+[![Lean verification](https://github.com/kevin-schlegel/Birkhoff-Problem/actions/workflows/verify.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/kevin-schlegel/Birkhoff-Problem/actions/workflows/verify.yml)
+
 This repository contains a Lean 4 formalization, using mathlib, of the finite algebra and embedding computations used in the paper for ring lengths $n=2,3,4,5,6$. The cases share definitions of cyclic-module objects, commuting-square morphisms, endomorphism algebras, quivers, and relations.
+
+[Mathematical statements](Statements.lean) · [Verification runs](https://github.com/kevin-schlegel/Birkhoff-Problem/actions/workflows/verify.yml) · [Local verification](#running-locally)
 
 ## Verified statements
 
-[Statements.lean](Statements.lean) is the entry point for the mathematical claims.
+[Statements.lean](Statements.lean) defines the common assertions and contains the public case theorems.
 
 - **C2:** For each length from 2 to 6, the specified vertex and arrow matrices define a surjective algebra homomorphism from the path algebra to the computed quotient endomorphism algebra. The listed relations vanish, and the presented algebra and the target have the same stated finite dimension.
 - **C3:** For the additional objects requiring a separate check beyond the paper's C1 construction, the ordinary endomorphism rings are local. The additional matrices are also proved to define embeddings. These checks concern one object at length 4 and twelve at length 5; the additional families at lengths 2 and 3 are empty. No C3 assertion is made for length 6.
@@ -19,52 +23,84 @@ The C2 datasets have the following sizes:
 | 5 | 18 | 23 | 10 | 179 |
 | 6 | 47 | 75 | 47 | 1708 |
 
-The corresponding public theorems are `n2_C2` through `n6_C2` and `n2_C3` through `n5_C3`.
+The public theorems are `UniserialComputations.n2_C2` through `UniserialComputations.n6_C2` and `UniserialComputations.n2_C3` through `UniserialComputations.n5_C3`. The additional embedding results are `UniserialComputations.Uniform.Case4.embeddings` and `UniserialComputations.Uniform.Case5.embeddings`.
 
 ## Mathematical setup and scope
 
-Objects and morphisms are described by matrices between finite direct sums of cyclic modules $R/(\pi^l)$. The hypotheses `RingParameters` specify a commutative ring $R$, a residue field $k$, an element $\pi$, and a surjective residue map $\rho : R \to k$, with $\pi^n=0$, $\ker\rho=\pi R$, and $\mathrm{Ann}(\pi^{n-l})=\pi^lR$ for $0\leq l\leq n$. No coefficient-field embedding $k\hookrightarrow R$ is assumed.
+Objects and morphisms are described by matrices between finite direct sums of cyclic modules $R/(\pi^l)$. The hypotheses `RingParameters` specify a commutative ring $R$, a field $k$, an element $\pi$, and a surjective residue map $\rho : R \to k$, with $n>0$, $\pi^n=0$, $\ker\rho=\pi R$, and $\mathrm{Ann}(\pi^{n-l})=\pi^lR$ for $0\leq l\leq n$. No coefficient-field embedding $k\hookrightarrow R$ is assumed.
 
 For C2, Lean constructs an algebraic quotient of commuting-square matrices: two representatives are identified when $\pi^{n-1}$ annihilates the difference of their ambient module maps. Its algebra structure and matrix realization are verified. The categorical ideal quotient itself, and the identification of this algebra with the relevant endomorphism algebra in that category, are not formalized. Those identifications, the interpretation of the supplied formulas as Auslander–Reiten translates, and the classification argument belong to the paper.
 
-## Repository layout
+## Verification
+
+The project uses Lean **4.36.0-rc2**, fixed by [lean-toolchain](lean-toolchain), and mathlib revision [`fafbe4e9e7246fc9fddd812d4ffd5135c6c5ce04`](https://github.com/leanprover-community/mathlib4/commit/fafbe4e9e7246fc9fddd812d4ffd5135c6c5ce04). The dependency configuration and resolved revisions are recorded in [lakefile.toml](lakefile.toml) and [lake-manifest.json](lake-manifest.json).
+
+[verify.py](verify.py) compiles all project modules, checks that the source inventory agrees with the Lake configuration and is reachable from `Audit.lean`, scans for proof admissions and unsupported proof shortcuts, and checks the axiom dependencies reported by [Audit.lean](Audit.lean). The permitted axioms are `propext`, `Classical.choice`, and `Quot.sound`.
+
+### Recorded successful run
+
+The [GitHub Actions run of 14 November 2026](https://github.com/kevin-schlegel/Birkhoff-Problem/actions/runs/43641851937) successfully verified commit [`79811be3214d538ce3707d07d8df0334a8e50adc`](https://github.com/kevin-schlegel/Birkhoff-Problem/commit/79811be3214d538ce3707d07d8df0334a8e50adc): **625 modules and 21 audited declarations**. It performed a fresh project verification with `--jobs 2`; the complete workflow took approximately 81 minutes.
+
+The workflow uploads the checked commit, the final report, saved progress, and compiler logs as a run artifact. Artifact retention is set to 30 days; download the artifact from the run page to keep a longer-lived copy.
+
+The committed [verification-report.json](verification-report.json) records a separate successful local macOS run. It contains source and configuration hashes, module results, and the axiom summary; it is not the report generated by the GitHub run above.
+
+### Running on GitHub
+
+The [verification workflow](.github/workflows/verify.yml) is started manually. A maintainer with write access can open **Actions → Verify Lean certificate → Run workflow**, select the branch, and start the check. It runs on GitHub's infrastructure, so the browser and local computer do not need to remain open. Readers can inspect completed public runs or reproduce the check locally.
+
+The badge above shows the latest workflow result on `main`. It does not automatically check subsequent commits. After changing Lean sources, the verifier, or dependencies, run the workflow again and use the commit recorded in that run when citing its result.
+
+### Running locally
+
+Install Git, Python **3.11 or newer**, and Lean through the [official installation guide](https://lean-lang.org/install/) or [elan's manual setup](https://lean-lang.org/install/manual/). Elan selects the project's Lean version from `lean-toolchain`.
+
+Clone the repository, or open an existing checkout:
+
+```sh
+git clone https://github.com/kevin-schlegel/Birkhoff-Problem.git &&
+cd Birkhoff-Problem
+```
+
+From the repository root, run the following commands in macOS, Linux, or Windows with WSL:
+
+```sh
+export PATH="$HOME/.elan/bin:$PATH"
+lake --version &&
+lake exe cache get &&
+python3 -u verify.py --jobs 2
+```
+
+These commands use the committed dependency manifest; `lake update` is not needed for this verification procedure. If `lake` is not found, finish installing elan and reopen the terminal. To reproduce the recorded GitHub snapshot, check out commit `79811be3214d538ce3707d07d8df0334a8e50adc` before running the commands.
+
+For the recorded source version, a successful run ends with:
+
+```text
+PASS: 625 modules; 21 audited declarations.
+```
+
+Progress is printed when each module finishes, so computationally expensive modules can leave the terminal quiet for several minutes. `--jobs 2` allows up to two independent modules to compile simultaneously; use `--jobs 1` to reduce simultaneous memory demand. Runtime depends on the machine and available memory.
+
+To continue an interrupted local run while retaining its `.verification/` directory:
+
+```sh
+export PATH="$HOME/.elan/bin:$PATH"
+python3 -u verify.py --jobs 2 --resume
+```
+
+Resume mode validates the source, compiled-output, toolchain, and configuration hashes before reusing completed checks, and invalidates dependent modules when needed. Without `--resume`, all project modules are recompiled.
+
+Compiler logs, saved progress, and the final `result.json` report are written to `.verification/`. Dependencies and Lake build outputs are stored in `.lake/`. Both directories are excluded by [.gitignore](.gitignore) and are regenerated locally. The committed report is an archived result and is not updated automatically. `lake build` also compiles the public entry points; `verify.py` performs the additional inventory and axiom checks described above.
+
+## Repository layout and data conventions
 
 - [Statements.lean](Statements.lean): common assertions and public case theorems.
 - [Cases/](Cases/): data and proofs for lengths 2–6. The `Data`, `Quiver`, and `Dataset` files specify the objects, arrows, relations, and their assembly; `Additional` files supply the extra embeddings.
 - [Shared/](Shared/): common ring hypotheses, matrix morphisms, ordinary endomorphism rings, the annihilation quotient, and path algebras.
 - `Proofs/` directories: supporting algebra and finite computations, split into smaller modules where needed.
-- [Audit.lean](Audit.lean): axiom-dependency checks.
+- [Audit.lean](Audit.lean): axiom-dependency queries for the public theorems and selected structural results.
 - [verify.py](verify.py): compilation and audit driver.
+- [.github/workflows/verify.yml](.github/workflows/verify.yml): manual GitHub verification and report upload.
+- [verification-report.json](verification-report.json): archived local verification report.
 
 In the input tables, an entry `(c,e)` represents $c\pi^e$; rows are target coordinates and columns are source coordinates. A length-zero summand is the zero module. Paths list arrows in traversal order, so `[a,b]` evaluates as `φ(b) * φ(a)`. Internal object and arrow indices are zero-based; the stored object labels retain the paper's notation.
-
-## Running the verification
-
-Install Git, Python **3.11 or newer**, and Lean through [elan](https://lean-lang.org/install/manual/). The Lean version is fixed by [lean-toolchain](lean-toolchain); the mathlib revision and dependencies are specified in the Lake configuration and manifest.
-
-The commands below work in macOS, Linux, or Windows with WSL. Run them from the repository root:
-
-```sh
-export PATH="$HOME/.elan/bin:$PATH"
-lake update &&
-lake exe cache get &&
-python3 verify.py --jobs 1
-```
-
-If `lake` is still not found, complete the elan installation and reopen the terminal.
-
-The verifier compiles every project module, checks the source inventory and dependency graph, rejects proof admissions and unsupported proof shortcuts, and audits the reported axioms. The permitted axioms are `propext`, `Classical.choice`, and `Quot.sound`.
-
-A successful run ends with `PASS: … modules; … audited declarations.` The larger computations can take substantial time, and progress is printed when each module finishes. `--jobs 1` limits simultaneous compilation; more jobs may help on a machine with sufficient memory.
-
-To continue an interrupted run:
-
-```sh
-export PATH="$HOME/.elan/bin:$PATH"
-python3 verify.py --jobs 1 --resume
-```
-
-Resume mode reuses recorded checks only after validating the relevant hashes and toolchain. Without `--resume`, the verifier recompiles all project modules.
-
-Compiler logs, saved progress, and the final `result.json` report are written to `.verification/`. Lake stores dependencies and build files in `.lake/`. Both directories are generated locally and need not be included in the repository. `lake build` also compiles the public entry points; the Python verifier performs the additional inventory and axiom checks.
-
